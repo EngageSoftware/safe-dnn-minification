@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Engage.Dnn</RootNamespace>
-    <AssemblyName>Engage.AjaxMinCompositeFileProcessingProvider</AssemblyName>
+    <AssemblyName>Engage.SafeDnnMinification</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -65,7 +65,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="AjaxMinCompositeFileProcessingProvider.ruleset" />
-    <None Include="AjaxMinCompositeFileProcessingProvider1.ruleset" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
