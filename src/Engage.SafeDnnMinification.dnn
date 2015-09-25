@@ -1,0 +1,58 @@
+﻿<dotnetnuke type="Package" version="5.0">
+  <packages>
+    <package name="Engage: SafeDnnMinification" type="Library" version="0.5.0">
+      <friendlyName>Engage: Safe Minification</friendlyName>
+      <description>An alternative minification component for the Client Dependency Framework that better support all flavors of script and CSS</description>
+      <owner>
+        <name>Engage Software</name>
+        <organization>Engage Software</organization>
+        <url>http://www.engagesoftware.com/</url>
+        <email>support@engagemodules.com</email>
+      </owner>
+      <license src="LICENSE.htm" />
+      <releaseNotes src="CHANGES.htm" />
+      <dependencies>
+        <dependency type="CoreVersion">6.1.0</dependency>
+      </dependencies>
+      <components>
+        <component type="Assembly">
+          <assemblies>
+            <assembly>
+              <path>bin</path>
+              <name>Engage.SafeDnnMinification.dll</name>
+              <version>0.5.0</version>
+            </assembly>
+            <assembly>
+              <path>bin</path>
+              <name>AjaxMin.dll</name>
+              <version>5.14.5506</version>
+            </assembly>
+          </assemblies>
+        </component>
+        <component type="Config">
+          <config>
+            <configFile>web.config</configFile>
+            <install>
+              <configuration>
+                <nodes>
+                  <node path="/configuration/clientDependency/compositeFiles/fileProcessingProviders" key="name" action="update" collision="ignore">
+                    <add name="AjaxMinCompositeFileProcessor" type="Engage.Dnn.AjaxMinCompositeFileProcessingProvider" enableCssMinify="false" enableJsMinify="true" persistFiles="true" compositeFilePath="~/App_Data/ClientDependency" bundleDomains="" urlType="MappedId" />
+                  </node>
+                  <node path="/configuration/clientDependency/compositeFiles" action="updateattribute" name="defaultFileProcessingProvider" value="AjaxMinCompositeFileProcessor" />
+                </nodes>
+              </configuration>
+            </install>
+            <uninstall>
+              <configuration>
+                <nodes>
+                  <node path="/configuration/clientDependency/compositeFiles/fileProcessingProviders/add[@name='AjaxMinCompositeFileProcessor']" action="remove" />
+                  <node path="/configuration/clientDependency/compositeFiles" action="updateattribute" name="defaultFileProcessingProvider" value="DnnCompositeFileProcessor" />
+                </nodes>
+              </configuration>
+            </uninstall>
+          </config>
+        </component>
+    </components>
+    </package>
+  </packages>
+</dotnetnuke>

@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="AjaxMinCompositeFileProcessingProvider.ruleset" />
+    <None Include="Engage.SafeDnnMinification.dnn" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
