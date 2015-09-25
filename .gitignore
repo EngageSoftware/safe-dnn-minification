@@ -17,7 +17,7 @@
 [Rr]eleases/
 x64/
 x86/
-build/
+build/.fake/
 bld/
 [Bb]in/
 [Oo]bj/
@@ -196,3 +196,5 @@ FakesAssemblies/
 *.opt
 
 *.GhostDoc.xml
+
+dist/
