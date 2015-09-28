@@ -16,7 +16,8 @@ Target "RestorePackages" (fun _ ->
     (srcDir + "packages.config")
       |> RestorePackage (fun p -> 
          { p with 
-             OutputPath = (srcDir + "packages") })
+             OutputPath = (srcDir + "packages")
+             ToolPath = (findNuget (rootDir + ".nuget")) })
 )
 
 Target "Build" (fun _ ->
