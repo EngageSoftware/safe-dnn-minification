@@ -26,10 +26,13 @@ Target "Build" (fun _ ->
 )
 
 Target "Package" (fun _ ->
-    !! (tempDir + "**/*")
-      ++ (srcDir + "*.dnn")
+    !! (srcDir + "*.dnn")
       ++ (rootDir + "LICENSE.htm")
       ++ (rootDir + "CHANGES.htm")
+      |> Copy tempDir
+
+
+    !! (tempDir + "**/*")
       |> Zip tempDir (distDir + "Engage-SafeDnnMinification_Install.zip")
 )
 
