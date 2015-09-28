@@ -198,3 +198,4 @@ FakesAssemblies/
 *.GhostDoc.xml
 
 dist/
+build/tmp/

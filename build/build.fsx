@@ -2,8 +2,6 @@
 #r @"..\packages\FAKE\tools\FakeLib.dll"
 open Fake
 
-RestorePackages()
-
 let tempDir = "./tmp/"
 let binDir = "./tmp/bin"
 let distDir = "../dist/"
@@ -12,6 +10,13 @@ let srcDir = "../src/"
 
 Target "Clean" (fun _ ->
     CleanDirs [tempDir; distDir]
+)
+
+Target "RestorePackages" (fun _ ->
+    (srcDir + "packages.config")
+      |> RestorePackage (fun p -> 
+         { p with 
+             OutputPath = (srcDir + "packages") })
 )
 
 Target "Build" (fun _ ->
@@ -30,6 +35,7 @@ Target "Package" (fun _ ->
 
 // Dependencies
 "Clean"
+  ==> "RestorePackages"
   ==> "Build"
   ==> "Package"
 
