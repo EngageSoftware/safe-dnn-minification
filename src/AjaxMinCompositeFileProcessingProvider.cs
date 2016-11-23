@@ -47,7 +47,7 @@ namespace Engage.Dnn
         /// <param name="fileContents">The contents of the file.</param>
         /// <param name="type">The type of the resource.</param>
         /// <returns>The minified or full contents of <paramref name="fileContents"/>, based on the minification configuration.</returns>
-        protected override string MinifyFile(string fileContents, ClientDependencyType type)
+        public override string MinifyFile(string fileContents, ClientDependencyType type)
         {
             if (type == ClientDependencyType.Css && this.MinifyCss)
             {
